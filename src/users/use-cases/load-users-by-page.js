@@ -13,5 +13,3 @@ export const loadUsersByPage = async( page = 1 ) => {
 
     console.log(data);
 }
-
-// :)
