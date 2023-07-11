@@ -22,9 +22,26 @@ export const BreakingbadApp = async( element ) => {
     
     document.querySelector('#app-title').innerHTML = 'Breakingbad Quotes'
     element.innerHTML = 'Loading...'
-    
-    const quote = await fetchQuote();
-    element.innerHTML = 'Tenemos data'
+    // await fetchQuote();
 
+    const quoteLabel = document.createElement('blockquote');
+    const authorLabel = document.createElement('h3');
+    const nextQuoteButton = document.createElement('button');
+    nextQuoteButton.innerHTML = 'Next quote';
+
+
+    const renderQuote = ( data ) => {
+
+        quoteLabel.innerHTML = data.quote;
+        authorLabel.innerHTML = data.author;
+        element.replaceChildren( quoteLabel, authorLabel, nextQuoteButton );
+
+    }
+
+
+    fetchQuote()
+        .then( renderQuote );
+
+    
 }
 
