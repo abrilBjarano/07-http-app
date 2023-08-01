@@ -7,7 +7,7 @@ import { User } from '../models/user';
  */
 export const saveUser = async( userLike ) => {
 
-   const user = new UserActivation( userLike );
+   const user = new User( userLike );
 
    //TODO: falta mapper
 
